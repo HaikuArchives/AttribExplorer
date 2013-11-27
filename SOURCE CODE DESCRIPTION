@@ -1,0 +1,13 @@
+AttribExplorer source code description
+
+If you want to help with development, you may find these informations very useful. It's far from being an SDK, but should be enough for most things. Of course, you must be familiar with BeOS APIs.
+
+There are three main classes: the AttribExplorerApp (BApplication, defined in Main.h and implemented in Main.cpp), the FileWindow (BWindow, defined in FileWindow.h and implemented in FileWindow.cpp), and the AttributeItem (BListItem, defined in AttributeItem.h and implemented in AttributeItem.cpp).
+
+Once started, the application doesn't create a "main window", like many other programs, but waits to receive file references (through AttribExplorerApp::RefsReceived()): each reference will be assigned to a newly created FileWindow, directly from the FileWindow's constructor. Of course, if the app doesn't receive any file on startup, it will open a BFilePanel wich was created in its constructor (see AttribExplorer::ReadyToRun()).
+The app will then receive two messages from the windows: MSG_UNREGITSER_WINDOW and MSG_OPEN_OTHER_FILE (these constants are defined in Constants.h). The first will cause the window count to be decreased by one; when it reaches 0, the app will terminate because it means that there are no more windows (the count is kept in the windowCount class member). The second message causes the app to show again the file panel.
+
+Each window contains a BListView (attribList class member). Once created, the window will fill this list with as many AttributeItem objects as the node attributes are (through FileWindow::RefreshList()).
+
+The biggest class of this program is the AttributeItem class. It's a descendant of BListItem, but is much more complex than the classic BStringItem.
+The constructor takes as arguments the attribute name, the type, the size of data, and the data (or an error code wich specifies why the data hasn't been read). These informations cannot be changed at runtime.

@@ -1,0 +1,27 @@
+TODO for AttribExplorer
+
+Tasks importance varies from "very high" to "very low".
+
+GENERAL
+- Clean up and comment the source code [high]
+- Write the documentation [medium]
+- Port to PowerPC [medium]
+- Break out CodeWarrior by making a real Makefile (not very important, but it's the best for GPL software) [very low]
+
+FUNCTIONALITY
+- Rewrite Attribute and AttributeItem classes. If you want to do this, please speak with me, I'm studying the possibilities [very high]
+- Create the editor! But please wait for the new classes [very high]
+- Add basic edit functions like Rename, set type, set size, and so on [high]
+- Add the ability to edit node info (like Tracker's "Get Info", but editable) [high]
+- Implement endian swap for PowerPC-style attributes (partially done, only the "swap" part is missing) [medium]
+- Add casting for more types of data [low]
+
+INTERFACE
+- Create a better list of the attributes, like the Santa's gif bag "ColumnListView" by Brian Tietz [low]
+- Drag & drop files from Tracker [low]
+- Create an icon! [low]
+
+DELICATESSEN
+- Rid out of the warning "use of 'l' length character with 'f' type character" when compiling AttributeItem.cpp [very low]
+
+...whatever else you like

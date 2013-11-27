@@ -1,0 +1,89 @@
+AttribExplorer alpha 1.76
+
+Copyright (C) 2001-2004 Gabriele Biffi <gabriele@biffuz.it>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+
+INTRODUCTION
+
+AttribExplorer is a small utility that let you explore nodes' attributes under BeOS on BeFS drives.
+A "node" is either a file, a directory, or a symlink.
+
+For easy access, you can copy it to /boot/home/config/add-ons/Tracker.
+
+
+USAGE
+
+You can open any number of nodes, each one spawns a new window. You can even drag a file from the Tracker and drop it on an existing window to open it (on a new window).
+If a node has already his own window, it will be bring in front.
+In each window there are four columns. The first shows the attribute's name, the second what kind of data it contains (as listed on the Be Book), the third the data size (in bytes), and the fourth the actual data.
+From the "View style" menu, you can choose how you want to see the data and the type of the selected attribute: the default format (if possible, data are reinterpreted and shown to you in a more readable format), the hex dump, or as a string. The data can be shown also as a C string wich could be used in C/C++/Java functions like printf.
+In the "default" view, you may also see "<empty>", "<not enough data>", or "<more>". The first means that there's no data (size of data = 0), the second means that the data size is not enough for the attribute's type, and the third means that there are more bytes in the data than the ones expected for the type. In these last two situations, you can see the full data using a different view style.
+
+
+ERRORS
+
+Intead of the data, you could see an error message. The most common are "Unknown type" or "Unhandled type" (an "Unknown type" is a type that isn't listed on the Be Book, or in the Be's headers, an "Unhandled type" is a known type but AttribExplorer doesn't yet known how to show that type of data). If you see one of these two errors, you can still select to view the data as hex, as a string or as a C string. Other errors could be "Can't get attribute information" or "Reading error"; try to refresh the list (from the "Node" menu). If this doesn't work, make sure you have read access to the node, the disk isn't damaged, and so on.
+
+
+THIS SOFTWARE IS UNDER DEVELOPMENT!
+
+Of course, this program is under development, so it has got some bug and a lot of missing features (like the attribute editor, a more flexible user interface, and so on). But it does his job.
+If you're a programmer, why don't you do these chenges by yourself? Then, if you send me your patch (with the source code, of course), I'll place it in the "official" ditribution. And remember to add your name to the AUTHORS file!
+
+
+FEEDBACK
+
+Of course, feedback is always welcome!
+
+
+HISTORY
+
+Alpha 1.76 - March 6, 2004
+
+- Fixed e-mail and website address
+- Added missing DebugMonitor's README file
+- Added headers to .proj files
+- Fixed broken symlink
+
+Alpha 1.75 - October 27, 2002
+
+- Lots of code restructuring
+- Added "Edit" and "Windows" menus
+- Added basic editing functions (Cut, Copy, Paste, Delete)
+- Added windows list
+- If a node has already got his own window, it will be bring up
+- In some situations, alpha 1.5 remains active even if there are no more windows opened (Jonas Sundström)
+- Added a resource file  (Jonas Sundström)
+- Some minor interface changes
+
+Alpha 1.5 - December 26, 2001
+
+- Now it's Open source!
+- Added type view styles and default view style for unknown attributes is "String" (before it was the equivalent of "Hex")
+- Checks if data size is enough for data type
+- Type code endian-swapped on Intel (since there's no a PowerPC version, this means "always"!)
+- Added "String" view style for data
+- Multiple attribute selection allowed
+- "View style" menu is now ghosted if no attribute is selected
+- "Home page" button in About dialog
+- "File" menu renamed "Node"
+- "View" menu renamed "View style"
+- Minor bug fixes
+
+Alpha 1 - November 14, 2001
+
+- First alpha release
